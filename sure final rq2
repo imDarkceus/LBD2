@@ -1,0 +1,21 @@
+#include <stdio.h>
+main(){
+float voltage;
+printf("Enter the supply voltage: ");
+scanf("%f",&voltage);
+int r1 = 5,r2 = 10,r3 = 10;
+int r2_r3_eqv = (r2*r3)/(r2+r3);
+printf("R2 and R3 parallel equivalent resistance is: %d ohm\n",r2_r3_eqv);
+float reqv = r1+r2_r3_eqv;
+printf("Total equivalent resistance in circuit %.2f ohm\n",reqv);
+float Ic = voltage/reqv;
+printf("Total current Ic: %.2fA\n",Ic);
+float Vr2 = r2_r3_eqv*Ic;
+float Vr3 = r2_r3_eqv*Ic;
+printf("voltage across R2 resistor %.2fV\n",Vr2);
+printf("voltage across R3 resistor %.2fV\n",Vr3);
+float ir2  = (r2_r3_eqv/reqv)*Ic;
+float ir3  = (r2_r3_eqv/reqv)*Ic;
+printf("Current through R2 is: %.2fA\n",ir2);
+printf("Current through R3 is: %.2fA",ir3);
+}
